@@ -1,0 +1,327 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Decorative background orbs */
+.backgroundOrbs {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.orb1 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, transparent 70%);
+  top: -150px;
+  right: -100px;
+  animation: floatOrb 10s ease-in-out infinite alternate;
+}
+
+.orb2 {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(129, 140, 248, 0.1) 0%, transparent 70%);
+  bottom: -100px;
+  left: -100px;
+  animation: floatOrb 13s ease-in-out infinite alternate-reverse;
+}
+
+.orb3 {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.08) 0%, transparent 70%);
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: floatOrb 8s ease-in-out infinite alternate;
+}
+
+@keyframes floatOrb {
+  from { transform: translateY(0) scale(1); }
+  to { transform: translateY(30px) scale(1.05); }
+}
+
+/* Main content */
+.main {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 560px;
+  padding: 3rem 1.25rem 2rem;
+  flex: 1;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.headerIcon {
+  font-size: 3rem;
+  margin-bottom: 0.75rem;
+  display: block;
+  filter: drop-shadow(0 0 20px rgba(251, 191, 36, 0.4));
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #f0f9ff;
+  background: linear-gradient(135deg, #f0f9ff 30%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.4rem;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #64748b;
+  font-weight: 400;
+}
+
+/* Form Card */
+.formCard {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 2rem;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  margin-bottom: 1.5rem;
+}
+
+.formTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f0f9ff;
+  margin-bottom: 0.3rem;
+}
+
+.formHint {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-bottom: 1.5rem;
+}
+
+/* Day Toggle */
+.toggleGroup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.toggleBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 1rem 0.75rem;
+  border-radius: 16px;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.toggleBtn:hover {
+  border-color: rgba(56, 189, 248, 0.4);
+  background: rgba(56, 189, 248, 0.06);
+  color: #e2e8f0;
+}
+
+.toggleActive {
+  border-color: #38bdf8 !important;
+  background: rgba(56, 189, 248, 0.12) !important;
+  color: #f0f9ff !important;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+}
+
+.toggleIcon {
+  font-size: 1.75rem;
+  display: block;
+}
+
+.toggleLabel {
+  font-size: 0.95rem;
+  font-weight: 700;
+  display: block;
+}
+
+.toggleSub {
+  font-size: 0.72rem;
+  opacity: 0.6;
+  display: block;
+}
+
+/* Calculate Button */
+.calculateBtn {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  color: #fff;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 20px rgba(14, 165, 233, 0.35);
+}
+
+.calculateBtn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  box-shadow: 0 6px 28px rgba(14, 165, 233, 0.5);
+  transform: translateY(-1px);
+}
+
+.calculateBtn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.calculateBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.btnInner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+/* Spinner */
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Result area */
+.resultArea {
+  min-height: 80px;
+}
+
+/* Empty state */
+.emptyState {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  animation: fadeIn 0.4s ease;
+}
+
+.emptyIcon {
+  font-size: 3rem;
+  margin-bottom: 0.75rem;
+  opacity: 0.4;
+}
+
+.emptyText {
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+/* Error card */
+.errorCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.errorIcon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.errorTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fca5a5;
+  margin-bottom: 0.3rem;
+}
+
+.errorMsg {
+  font-size: 0.85rem;
+  color: #f87171;
+  line-height: 1.5;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Footer */
+.footer {
+  position: relative;
+  z-index: 1;
+  padding: 1.25rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #334155;
+}
+
+.footerAccent {
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .main {
+    padding: 2rem 1rem 1.5rem;
+  }
+
+  .title {
+    font-size: 1.85rem;
+  }
+
+  .formCard {
+    padding: 1.5rem;
+  }
+
+  .toggleGroup {
+    gap: 0.5rem;
+  }
+}

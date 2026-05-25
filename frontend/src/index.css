@@ -1,0 +1,43 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-bg-from: #0b1a2e;
+  --color-bg-via: #0f2d4a;
+  --color-bg-to: #0a2540;
+  --color-card: rgba(255, 255, 255, 0.07);
+  --color-card-border: rgba(255, 255, 255, 0.12);
+  --color-accent: #38bdf8;
+  --color-accent-dark: #0284c7;
+  --color-text-primary: #f0f9ff;
+  --color-text-secondary: #94a3b8;
+  --color-text-muted: #64748b;
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --radius-card: 20px;
+  --radius-btn: 12px;
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.35);
+  --shadow-glow: 0 0 40px rgba(56, 189, 248, 0.15);
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, var(--color-bg-from) 0%, var(--color-bg-via) 50%, var(--color-bg-to) 100%);
+  min-height: 100vh;
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

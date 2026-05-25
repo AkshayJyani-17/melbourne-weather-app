@@ -1,0 +1,240 @@
+.card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  padding: 2rem;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), 0 0 60px rgba(56, 189, 248, 0.08);
+  animation: fadeSlideIn 0.5s ease forwards;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #38bdf8, #818cf8, #38bdf8);
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: #38bdf8;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  margin-bottom: 1.25rem;
+}
+
+.header {
+  margin-bottom: 1.5rem;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f0f9ff;
+  margin-bottom: 0.3rem;
+}
+
+.locationIcon {
+  font-size: 1rem;
+}
+
+.date {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.mainWeather {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.iconWrap {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  background: rgba(56, 189, 248, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.weatherIcon {
+  width: 64px;
+  height: 64px;
+  filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.5));
+}
+
+.tempBlock {
+  display: flex;
+  align-items: flex-start;
+  line-height: 1;
+}
+
+.temp {
+  font-size: 5rem;
+  font-weight: 800;
+  color: #f0f9ff;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.unit {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #38bdf8;
+  margin-top: 0.75rem;
+  margin-left: 0.1rem;
+}
+
+.description {
+  font-size: 1.05rem;
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.minMax {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.75rem;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.minMaxItem {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.minMaxIcon {
+  font-size: 0.7rem;
+  color: #38bdf8;
+}
+
+.maxIcon {
+  color: #f87171;
+}
+
+.minMaxVal {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #f0f9ff;
+}
+
+.minMaxLabel {
+  font-size: 0.78rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.divider {
+  width: 1px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  padding: 0.85rem 0.75rem;
+  transition: background 0.2s ease;
+}
+
+.statItem:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.statIcon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.statInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.statValue {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #f0f9ff;
+  white-space: nowrap;
+}
+
+.statLabel {
+  font-size: 0.7rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 1.5rem;
+  }
+
+  .temp {
+    font-size: 4rem;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .statItem {
+    flex-direction: row;
+    padding: 0.75rem 1rem;
+  }
+}
